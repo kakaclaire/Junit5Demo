@@ -1,4 +1,4 @@
-package com.junit5;
+package com.junit5.demo;
 
 import com.util.Calculator;
 import org.junit.jupiter.api.Test;

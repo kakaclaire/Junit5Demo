@@ -1,7 +1,7 @@
-package com.junit5;
+package com.junit5.demo;
 
 import com.util.Calculator;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,8 +16,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @create 2020/11/8
  * @since 1.0.0
  */
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)//可以控制指执行顺序
 public class Junit5Demo_2_1_AssertAll {
     @Test
+    @Order(1)
     public void addTest() {
         final int result01 = Calculator.add(4, 2);
         System.out.println(result01);
@@ -37,6 +39,7 @@ public class Junit5Demo_2_1_AssertAll {
     }
 
     @Test
+    @Order(2)
     public void subTractTest() {
         int result = Calculator.subtract(4, 2);
         System.out.println(result);
@@ -44,6 +47,7 @@ public class Junit5Demo_2_1_AssertAll {
     }
 
     @Test
+    @Order(3)
     public void multiplyTest() {
         int result = Calculator.multiply(4, 2);
         System.out.println(result);
@@ -56,8 +60,14 @@ public class Junit5Demo_2_1_AssertAll {
         System.out.println(result);
         assertEquals(2, result);
     }
+    @BeforeEach//每个方法前执行
+    public void clear(){
+        Calculator.clear();
+    }
+
 
     @Test
+    @Order(5)
     public void countTest() throws InterruptedException {
         int result = Calculator.count(1);
         result = Calculator.count(1);

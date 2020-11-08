@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.parallel.ExecutionMode.CONCURRENT;
  * @create 2020/11/8
  * @since 1.0.0
  */
-public class Junit5Demo_4_1_parallel {
+public class Junit5Demo_4_1_Parallel {
 
     @RepeatedTest(10)
 //    @Execution(CONCURRENT) //CONCURRENT表示支持多线程
